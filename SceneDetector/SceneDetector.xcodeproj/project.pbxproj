@@ -13,6 +13,7 @@
 		E847F36D21A1568E00C62F48 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = E847F36C21A1568E00C62F48 /* Assets.xcassets */; };
 		E847F37021A1568E00C62F48 /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = E847F36E21A1568E00C62F48 /* LaunchScreen.storyboard */; };
 		E847F37A21A1577E00C62F48 /* GoogLeNetPlaces.mlmodel in Sources */ = {isa = PBXBuildFile; fileRef = E847F37921A1577E00C62F48 /* GoogLeNetPlaces.mlmodel */; };
+		E85970F421AD86B50073F2CC /* UIImage+Utils.m in Sources */ = {isa = PBXBuildFile; fileRef = E85970F321AD86B50073F2CC /* UIImage+Utils.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -24,6 +25,9 @@
 		E847F36F21A1568E00C62F48 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		E847F37121A1568E00C62F48 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		E847F37921A1577E00C62F48 /* GoogLeNetPlaces.mlmodel */ = {isa = PBXFileReference; lastKnownFileType = file.mlmodel; name = GoogLeNetPlaces.mlmodel; path = ../../../../../Downloads/SceneDetector_Final/SceneDetector/Resources/GoogLeNetPlaces.mlmodel; sourceTree = "<group>"; };
+		E85970F121AD86B40073F2CC /* SceneDetector-Bridging-Header.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "SceneDetector-Bridging-Header.h"; sourceTree = "<group>"; };
+		E85970F221AD86B50073F2CC /* UIImage+Utils.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = "UIImage+Utils.h"; sourceTree = "<group>"; };
+		E85970F321AD86B50073F2CC /* UIImage+Utils.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = "UIImage+Utils.m"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -56,6 +60,7 @@
 		E847F36421A1568E00C62F48 /* SceneDetector */ = {
 			isa = PBXGroup;
 			children = (
+				E85970F021AD86740073F2CC /* Util */,
 				E847F37821A1576700C62F48 /* MLModel */,
 				E847F37721A156A200C62F48 /* Resource */,
 				E847F36521A1568E00C62F48 /* AppDelegate.swift */,
@@ -81,6 +86,16 @@
 				E847F37921A1577E00C62F48 /* GoogLeNetPlaces.mlmodel */,
 			);
 			path = MLModel;
+			sourceTree = "<group>";
+		};
+		E85970F021AD86740073F2CC /* Util */ = {
+			isa = PBXGroup;
+			children = (
+				E85970F221AD86B50073F2CC /* UIImage+Utils.h */,
+				E85970F321AD86B50073F2CC /* UIImage+Utils.m */,
+				E85970F121AD86B40073F2CC /* SceneDetector-Bridging-Header.h */,
+			);
+			path = Util;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -115,6 +130,7 @@
 				TargetAttributes = {
 					E847F36121A1568E00C62F48 = {
 						CreatedOnToolsVersion = 10.1;
+						LastSwiftMigration = 1010;
 					};
 				};
 			};
@@ -157,6 +173,7 @@
 				E847F36821A1568E00C62F48 /* ViewController.swift in Sources */,
 				E847F36621A1568E00C62F48 /* AppDelegate.swift in Sources */,
 				E847F37A21A1577E00C62F48 /* GoogLeNetPlaces.mlmodel in Sources */,
+				E85970F421AD86B50073F2CC /* UIImage+Utils.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -302,6 +319,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SceneDetector/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -310,6 +328,8 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.SceneDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SceneDetector/Util/SceneDetector-Bridging-Header.h";
+				SWIFT_OPTIMIZATION_LEVEL = "-Onone";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};
@@ -319,6 +339,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ENABLE_MODULES = YES;
 				CODE_SIGN_STYLE = Automatic;
 				INFOPLIST_FILE = SceneDetector/Resource/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = (
@@ -327,6 +348,7 @@
 				);
 				PRODUCT_BUNDLE_IDENTIFIER = com.silence.SceneDetector;
 				PRODUCT_NAME = "$(TARGET_NAME)";
+				SWIFT_OBJC_BRIDGING_HEADER = "SceneDetector/Util/SceneDetector-Bridging-Header.h";
 				SWIFT_VERSION = 4.2;
 				TARGETED_DEVICE_FAMILY = "1,2";
 			};

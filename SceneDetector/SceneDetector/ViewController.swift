@@ -25,6 +25,8 @@ class ViewController: UIViewController {
             fatalError("no starting image")
         }
         
+        //predictionImage(image: image)
+        
         scene.image = image
         
         guard let ciImage = CIImage(image: image) else {
@@ -37,11 +39,24 @@ class ViewController: UIViewController {
 
 // MARK: - 识别图片
 extension ViewController {
+    // 根据Model的Input处理图片
+    func predictionImage(image: UIImage) {
+        let model = GoogLeNetPlaces()
+        let scaleImage = image.scale(to: CGSize(width: 224, height: 224))
+        let buffer = scaleImage.pixelBufferFromCGImage()
+        let input = GoogLeNetPlacesInput(sceneImage: buffer.takeRetainedValue())
+        guard let output = try? model.prediction(input: input)  else {
+            fatalError("Prediction Error")
+        }
+        print("Scene label is: \(output.sceneLabel)")
+    }
+    
+    // 使用Vision处理图片
     func detectScene(image: CIImage) {
         answerLabel.text = "detecting scene..."
         
         // 加载Core ML 模型
-        guard let model = try? VNCoreMLModel(for: GoogLeNetPlacesInput().model) else {
+        guard let model = try? VNCoreMLModel(for: GoogLeNetPlaces().model) else {
             fatalError("can't load Places ML model")
         }
         
@@ -90,6 +105,8 @@ extension ViewController: UINavigationControllerDelegate & UIImagePickerControll
         }
         
         scene.image = image
+        
+        //predictionImage(image: image)
         
         guard let ciImage = CIImage(image: image) else {
             fatalError("couldn't convert UIImage to CIImage")
